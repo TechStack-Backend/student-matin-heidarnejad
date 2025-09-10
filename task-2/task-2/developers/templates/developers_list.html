@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Developers{% endblock %}
+
+{% block content %}
+  {% for d in developers %}
+    <div class="card">
+      <strong>{{ d.first_name }} {{ d.last_name }}</strong>
+      <div style="margin:6px 0;color:#666">@{{ d.username }}</div>
+      <a class="btn" href="{% url 'developers:detail' d.username %}">show CV</a>
+    </div>
+  {% empty %}
+    <p>program does not here.</p>
+  {% endfor %}
+{% endblock %}
